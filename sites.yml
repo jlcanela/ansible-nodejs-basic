@@ -1,0 +1,6 @@
+---
+# file: site.yml
+- include: webservers.yml
+- include: app.yml
+- include: proxy.yml
+

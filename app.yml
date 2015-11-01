@@ -1,0 +1,13 @@
+- name: start application
+  hosts: webservers
+  tasks:
+    - name: check running
+      command: forever list
+      register: forever_list
+      changed_when: false
+    - name: copy app file
+      synchronize: src=nodejsapp dest=/home/vagrant
+      when: "forever_list.stdout.find('/home/vagrant/nodejsapp/app.js') == -1"
+    - name: "Start example Node.js app."
+      command: forever start /home/vagrant/nodejsapp/app.js
+      when: "forever_list.stdout.find('/home/vagrant/nodejsapp/app.js') == -1"
