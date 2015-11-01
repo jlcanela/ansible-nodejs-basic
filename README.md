@@ -1,3 +1,14 @@
+# How to use
+
+## Install from github (vagrant version)
+
+```
+git clone https://github.com/jlcanela/ansible-nodejs-basic
+cd ansible-nodejs-basic
+vagrant up && ansible-playbook sites.yml # total installation time ~ 5 mn
+curl http://localhost:8080/   # check if working properly
+```
+
 # Troubleshooting
 
 ## vagrant unable to start
